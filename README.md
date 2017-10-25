@@ -7,7 +7,7 @@
     <a href="https://david-dm.org/makeup-js/makeup-focus-exit-emitter#info=devDependencies"><img src="https://david-dm.org/makeup-js/makeup-focus-exit-emitter/dev-status.svg" alt="devDependency status" /></a>
 </p>
 
-A vanilla JavaScript port of <a href="https://github.com/ianmcburnie/jquery-linear-navigation">jquery-screenreader-trap</a>.
+A vanilla JavaScript port of <a href="https://github.com/makeup-jquery/jquery-focus-exit">jquery-focus-exit</a>.
 
 ## Experimental
 
