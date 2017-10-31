@@ -1,9 +1,9 @@
 {
-  "name": "makeup-focus-exit-emitter",
-  "description": "Emits 'focusExit' event when keyboard focus leaves a widget",
+  "name": "makeup-exit-emitter",
+  "description": "Emits custom 'focusExit' event when keyboard focus has exited an element and all of it's descendants",
   "version": "0.0.1",
   "main": "index.js",
-  "repository": "https://github.com/makeup-js/makeup-focus-exit-emitter.git",
+  "repository": "https://github.com/makeup-js/makeup-exit-emitter.git",
   "author": "Ian McBurnie <ianmcburnie@hotmail.com>",
   "license": "MIT",
   "scripts": {

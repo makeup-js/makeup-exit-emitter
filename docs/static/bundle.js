@@ -591,7 +591,7 @@ https://github.com/joyent/node/blob/master/lib/module.js
     }
 })();
 
-$_mod.installed("makeup-focus-exit-emitter$0.0.1", "custom-event-polyfill", "0.3.0");
+$_mod.installed("makeup-exit-emitter$0.0.1", "custom-event-polyfill", "0.3.0");
 $_mod.main("/custom-event-polyfill$0.3.0", "custom-event-polyfill");
 $_mod.def("/custom-event-polyfill$0.3.0/custom-event-polyfill", function(require, exports, module, __filename, __dirname) { // Polyfill for creating CustomEvents on IE9/10/11
 
@@ -639,40 +639,71 @@ try {
 }
 
 });
-$_mod.def("/makeup-focus-exit-emitter$0.0.1/index", function(require, exports, module, __filename, __dirname) { 'use strict';
+$_mod.def("/makeup-exit-emitter$0.0.1/index", function(require, exports, module, __filename, __dirname) { 'use strict';
 
 // requires CustomEvent polyfill for IE9+
 // https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
 
-function onFocusOut(e) {
-    if (this.contains(e.relatedTarget) === false) {
-        this.dispatchEvent(new CustomEvent('focusExit', {
+function onFocusOrMouseOut(evt, el, type) {
+    if (el.contains(evt.relatedTarget) === false) {
+        el.dispatchEvent(new CustomEvent(type + 'Exit', {
             detail: {
-                newElement: e.relatedTarget,
-                oldElement: e.target
-            }
+                toElement: evt.relatedTarget,
+                fromElement: evt.target
+            },
+            bubbles: false // mirror the native mouseleave event
         }));
     }
 }
 
-function add(el) {
+function onFocusOut(e) {
+    onFocusOrMouseOut(e, this, 'focus');
+}
+
+function onMouseOut(e) {
+    onFocusOrMouseOut(e, this, 'mouse');
+}
+
+function addFocusExit(el) {
     el.addEventListener('focusout', onFocusOut);
 }
 
-function remove(el) {
+function removeFocusExit(el) {
     el.removeEventListener('focusout', onFocusOut);
 }
 
+function addMouseExit(el) {
+    el.addEventListener('mouseout', onMouseOut);
+}
+
+function removeMouseExit(el) {
+    el.removeEventListener('mouseout', onMouseOut);
+}
+
+function add(el) {
+    addFocusExit(el);
+    addMouseExit(el);
+}
+
+function remove(el) {
+    removeFocusExit(el);
+    removeMouseExit(el);
+}
+
 module.exports = {
+    addFocusExit: addFocusExit,
+    addMouseExit: addMouseExit,
+    removeFocusExit: removeFocusExit,
+    removeMouseExit: removeMouseExit,
     add: add,
     remove: remove
 };
 
 });
-$_mod.def("/makeup-focus-exit-emitter$0.0.1/docs/index", function(require, exports, module, __filename, __dirname) { var FocusExitEmitter = require('/makeup-focus-exit-emitter$0.0.1/index'/*'../index.js'*/);
+$_mod.def("/makeup-exit-emitter$0.0.1/docs/index", function(require, exports, module, __filename, __dirname) { var ExitEmitter = require('/makeup-exit-emitter$0.0.1/index'/*'../index.js'*/);
 
 Array.prototype.slice.call(document.querySelectorAll('.widget')).forEach(function(el) {
-    FocusExitEmitter.add(el);
+    ExitEmitter.addFocusExit(el);
 
     el.addEventListener('focusin', function() {
         this.classList.add('focusin');
@@ -685,4 +716,4 @@ Array.prototype.slice.call(document.querySelectorAll('.widget')).forEach(functio
 });
 
 });
-$_mod.run("/makeup-focus-exit-emitter$0.0.1/docs/index");
+$_mod.run("/makeup-exit-emitter$0.0.1/docs/index");

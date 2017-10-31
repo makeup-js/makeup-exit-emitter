@@ -1,7 +1,7 @@
-var FocusExitEmitter = require('../index.js');
+var ExitEmitter = require('../index.js');
 
 Array.prototype.slice.call(document.querySelectorAll('.widget')).forEach(function(el) {
-    FocusExitEmitter.add(el);
+    ExitEmitter.addFocusExit(el);
 
     el.addEventListener('focusin', function() {
         this.classList.add('focusin');

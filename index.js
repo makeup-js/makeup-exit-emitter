@@ -3,26 +3,57 @@
 // requires CustomEvent polyfill for IE9+
 // https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
 
-function onFocusOut(e) {
-    if (this.contains(e.relatedTarget) === false) {
-        this.dispatchEvent(new CustomEvent('focusExit', {
+function onFocusOrMouseOut(evt, el, type) {
+    if (el.contains(evt.relatedTarget) === false) {
+        el.dispatchEvent(new CustomEvent(type + 'Exit', {
             detail: {
-                newElement: e.relatedTarget,
-                oldElement: e.target
-            }
+                toElement: evt.relatedTarget,
+                fromElement: evt.target
+            },
+            bubbles: false // mirror the native mouseleave event
         }));
     }
 }
 
-function add(el) {
+function onFocusOut(e) {
+    onFocusOrMouseOut(e, this, 'focus');
+}
+
+function onMouseOut(e) {
+    onFocusOrMouseOut(e, this, 'mouse');
+}
+
+function addFocusExit(el) {
     el.addEventListener('focusout', onFocusOut);
 }
 
-function remove(el) {
+function removeFocusExit(el) {
     el.removeEventListener('focusout', onFocusOut);
 }
 
+function addMouseExit(el) {
+    el.addEventListener('mouseout', onMouseOut);
+}
+
+function removeMouseExit(el) {
+    el.removeEventListener('mouseout', onMouseOut);
+}
+
+function add(el) {
+    addFocusExit(el);
+    addMouseExit(el);
+}
+
+function remove(el) {
+    removeFocusExit(el);
+    removeMouseExit(el);
+}
+
 module.exports = {
+    addFocusExit: addFocusExit,
+    addMouseExit: addMouseExit,
+    removeFocusExit: removeFocusExit,
+    removeMouseExit: removeMouseExit,
     add: add,
     remove: remove
 };
