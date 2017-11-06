@@ -35,7 +35,6 @@
     "babel-preset-env": "^1",
     "browser-sync": "^2",
     "coveralls": "^3",
-    "custom-event-polyfill": "~0.3",
     "eslint": "^4",
     "eslint-config-ebay": "~0.1",
     "jasmine-core": "^2",
@@ -49,5 +48,8 @@
     "parallelshell": "^3",
     "pre-commit": "^1",
     "rimraf": "^2"
+  },
+  "dependencies": {
+    "custom-event-polyfill": "~0.3"
   }
 }
