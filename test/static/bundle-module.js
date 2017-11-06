@@ -1,4 +1,4 @@
-$_mod.installed("makeup-exit-emitter$0.0.1", "custom-event-polyfill", "0.3.0");
+$_mod.installed("makeup-exit-emitter$0.0.2", "custom-event-polyfill", "0.3.0");
 $_mod.main("/custom-event-polyfill$0.3.0", "custom-event-polyfill");
 $_mod.def("/custom-event-polyfill$0.3.0/custom-event-polyfill", function(require, exports, module, __filename, __dirname) { // Polyfill for creating CustomEvents on IE9/10/11
 
@@ -46,7 +46,7 @@ try {
 }
 
 });
-$_mod.def("/makeup-exit-emitter$0.0.1/index", function(require, exports, module, __filename, __dirname) { 'use strict';
+$_mod.def("/makeup-exit-emitter$0.0.2/index", function(require, exports, module, __filename, __dirname) { 'use strict';
 
 // requires CustomEvent polyfill for IE9+
 // https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
