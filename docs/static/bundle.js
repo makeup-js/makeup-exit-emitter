@@ -639,6 +639,7 @@ try {
 }
 
 });
+$_mod.run("/custom-event-polyfill$0.3.0/custom-event-polyfill");
 $_mod.def("/makeup-exit-emitter$0.0.1/index", function(require, exports, module, __filename, __dirname) { 'use strict';
 
 // requires CustomEvent polyfill for IE9+
