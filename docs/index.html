@@ -1,57 +1,61 @@
-<html !doctype>
-<head>
-    <title>Demo: makeup-exit-emitter</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <style>
-        header {
-            border-bottom: 1px solid #eee;
-        }
-        .widget {
-            border: 2px dotted #eee;
-            margin: 16px 0;
-            padding: 16px;
-        }
-        .test {
-            border: 1px dotted #333;
-            margin: 20px 0;
-            padding: 10px;
-        }
-        .focusin {
-            background-color: #eee;
-        }
-        .mousein {
-            background-color: #ffcc00;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Demo: makeup-exit-emitter</h1>
-        <p>The dotted border marks the confines of the widget. Background will be grey whilst focus remains on or inside widget.</p>
-        <p>Open developer console to view debug output.</p>
-    </header>
-    <main role="main">
-        <h2>Test Area</h2>
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Demo: makeup-exit-emitter</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <style>
+            header {
+                border-bottom: 1px solid #eee;
+            }
+            .widget {
+                border: 2px dotted #eee;
+                margin: 16px 0;
+                padding: 16px;
+            }
+            .test {
+                border: 1px dotted #333;
+                margin: 20px 0;
+                padding: 10px;
+            }
+            .focusin {
+                background-color: #eee;
+            }
+            .mousein {
+                background-color: #ffcc00;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Demo: makeup-exit-emitter</h1>
+            <p>The dotted border marks the confines of a widget. Background will be grey whilst focus remains on or inside widget.</p>
+            <p>Note that mouse clicks on buttons, checkboxes and radios does not set focus in some browsers (e.g. Safari)!</p>
+            <p>Open developer console to view debug output.</p>
+        </header>
+        <main role="main">
+            <h2>Test Area</h2>
 
-        <button>Button 1</button>
-        <p>text before widgets</p>
+            <button>Button 1</button>
+            <input type="text" placeholder="input before widget" />
+            <p>text before widgets</p>
 
-        <div class="widget" id="widget1">
-            <button>Button 3</button>
-            <span>text inside widget</span>
-            <button>Button 4</button>
-        </div>
+            <div class="widget" id="widget1">
+                <button>Button 3</button>
+                <span>text inside widget</span>
+                <input type="text" placeholder="input inside widget" />
+            </div>
 
-        <div class="widget" id="widget2" tabindex="0">
-            <button>Button 5</button>
-            <span>text inside widget</span>
-            <button>Button 6</button>
-        </div>
+            <div class="widget" id="widget2">
+                <button>Button 5</button>
+                <span>text inside widget</span>
+                <input type="text" placeholder="input inside widget" />
+            </div>
 
-        <p>text after widgets</p>
-        <button>Button 7</button>
-    </main>
-</body>
-<!-- <lasso-body> --><script src="./static/bundle.js"></script>
+            <p>text after widgets</p>
+            <input type="text" placeholder="input after widgets" />
+            <button>Button 7</button>
+        </main>
+    </body>
+    <!-- <lasso-body> --><script src="./static/bundle.js"></script>
 <script>$_mod.ready();</script><!-- </lasso-body> -->
 </html>

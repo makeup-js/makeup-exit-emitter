@@ -30,9 +30,9 @@ yarn add makeup-exit-emitter
 ```js
     const ExitEmitter = require('makeup-exit-emitter');
 
-    let el = document.getElementById('#widget1');
+    const el = document.getElementById('#widget1');
 
-    ExitEmitter.addFocusExit(el);
+    const exitEmitter = new ExitEmitter(el);
 
     el.addEventListener('focusExit', function(e){
         console.log(this, e); // outputs (el1, 'focusExit')
@@ -41,20 +41,11 @@ yarn add makeup-exit-emitter
 
 ## Methods
 
-* addFocusExit
-* addMouseExit
-* removeFocusExit
-* removeMouseExit
-* add
-* remove
+* None
 
 ## Events
 
 * 'focusExit'
-    * event.detail
-        * fromElement
-        * toElement
-* 'mouseExit'
     * event.detail
         * fromElement
         * toElement

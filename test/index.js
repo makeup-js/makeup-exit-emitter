@@ -1,5 +1,5 @@
 describe("makeup-focus-exit-emitter", function() {
-    var FocusExitEmitter = require('../index.js');
+    var ExitEmitter = require('../index.js');
     var timeoutInterval = 250;
     var dom = '<div id="test-element" tabindex="0"><button></button><button></button></div>'
             + '<div id="test-element-sibling" tabindex="0"><button></button><button></button></div>';
@@ -14,13 +14,13 @@ describe("makeup-focus-exit-emitter", function() {
 
     describe('when emitter class is imported', function() {
         it("FocusExitEmitter module should not be undefined", function() {
-            expect(FocusExitEmitter).not.toEqual(undefined);
+            expect(ExitEmitter).not.toEqual(undefined);
         });
     });
 
     describe('when emitter is added', function() {
         beforeAll(function() {
-            FocusExitEmitter.add(testEl);
+            var exitEmitter = new ExitEmitter(testEl); // eslint-disable-line
         });
 
         it("should trigger focusexit when focus moves from element root to sibling", function(done) {

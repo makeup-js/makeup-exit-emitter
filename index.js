@@ -3,57 +3,57 @@
 // requires CustomEvent polyfill for IE9+
 // https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
 
-function onFocusOrMouseOut(evt, el, type) {
-    if (el.contains(evt.relatedTarget) === false) {
-        el.dispatchEvent(new CustomEvent(type + 'Exit', {
-            detail: {
-                toElement: evt.relatedTarget,
-                fromElement: evt.target
-            },
-            bubbles: false // mirror the native mouseleave event
-        }));
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function doFocusExit(el, fromElement, toElement) {
+    el.dispatchEvent(new CustomEvent('focusExit', {
+        detail: { fromElement: fromElement, toElement: toElement },
+        bubbles: false // mirror the native mouseleave event
+    }));
+}
+
+function onDocumentFocusIn(e) {
+    var newFocusElement = e.target;
+    var targetIsDescendant = this.el.contains(newFocusElement);
+
+    // if focus has moved to a focusable descendant
+    if (targetIsDescendant === true) {
+        // set the target as the currently focussed element
+        this.currentFocusElement = newFocusElement;
+    } else {
+        // else focus has not gone to a focusable descendant
+        document.removeEventListener('focusin', this.onDocumentFocusInListener);
+        doFocusExit(this.el, this.currentFocusElement, newFocusElement);
+        this.currentFocusElement = null;
     }
 }
 
-function onFocusOut(e) {
-    onFocusOrMouseOut(e, this, 'focus');
+function onWindowBlur() {
+    doFocusExit(this.el, this.currentFocusElement, undefined);
 }
 
-function onMouseOut(e) {
-    onFocusOrMouseOut(e, this, 'mouse');
+function onWidgetFocusIn() {
+    // listen for focus moving to anywhere in document
+    // note that mouse click on buttons, checkboxes and radios does not trigger focus events in all browsers!
+    document.addEventListener('focusin', this.onDocumentFocusInListener);
+    // listen for focus leaving the window
+    window.addEventListener('blur', this.onWindowBlurListener);
 }
 
-function addFocusExit(el) {
-    el.addEventListener('focusout', onFocusOut);
-}
+module.exports = function () {
+    function _class(el) {
+        _classCallCheck(this, _class);
 
-function removeFocusExit(el) {
-    el.removeEventListener('focusout', onFocusOut);
-}
+        this.el = el;
 
-function addMouseExit(el) {
-    el.addEventListener('mouseout', onMouseOut);
-}
+        this.currentFocusElement = null;
 
-function removeMouseExit(el) {
-    el.removeEventListener('mouseout', onMouseOut);
-}
+        this.onWidgetFocusInListener = onWidgetFocusIn.bind(this);
+        this.onDocumentFocusInListener = onDocumentFocusIn.bind(this);
+        this.onWindowBlurListener = onWindowBlur.bind(this);
 
-function add(el) {
-    addFocusExit(el);
-    addMouseExit(el);
-}
+        this.el.addEventListener('focusin', this.onWidgetFocusInListener);
+    }
 
-function remove(el) {
-    removeFocusExit(el);
-    removeMouseExit(el);
-}
-
-module.exports = {
-    addFocusExit: addFocusExit,
-    addMouseExit: addMouseExit,
-    removeFocusExit: removeFocusExit,
-    removeMouseExit: removeMouseExit,
-    add: add,
-    remove: remove
-};
+    return _class;
+}();
