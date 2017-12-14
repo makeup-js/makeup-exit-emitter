@@ -50,6 +50,7 @@
     "rimraf": "^2"
   },
   "dependencies": {
-    "custom-event-polyfill": "~0.3"
+    "custom-event-polyfill": "~0.3",
+    "makeup-next-id": "~0.0"
   }
 }

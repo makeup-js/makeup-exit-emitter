@@ -1,9 +1,14 @@
 'use strict';
 
-// requires CustomEvent polyfill for IE9+
-// https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var nextID = require('makeup-next-id');
+var focusExitEmitters = {};
+
+// requires CustomEvent polyfill for IE9+
+// https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
 
 function doFocusExit(el, fromElement, toElement) {
     el.dispatchEvent(new CustomEvent('focusExit', {
@@ -22,6 +27,7 @@ function onDocumentFocusIn(e) {
         this.currentFocusElement = newFocusElement;
     } else {
         // else focus has not gone to a focusable descendant
+        window.removeEventListener('blur', this.onWindowBlurListener);
         document.removeEventListener('focusin', this.onDocumentFocusInListener);
         doFocusExit(this.el, this.currentFocusElement, newFocusElement);
         this.currentFocusElement = null;
@@ -40,9 +46,9 @@ function onWidgetFocusIn() {
     window.addEventListener('blur', this.onWindowBlurListener);
 }
 
-module.exports = function () {
-    function _class(el) {
-        _classCallCheck(this, _class);
+var FocusExitEmitter = function () {
+    function FocusExitEmitter(el) {
+        _classCallCheck(this, FocusExitEmitter);
 
         this.el = el;
 
@@ -55,5 +61,41 @@ module.exports = function () {
         this.el.addEventListener('focusin', this.onWidgetFocusInListener);
     }
 
-    return _class;
+    _createClass(FocusExitEmitter, [{
+        key: 'removeEventListeners',
+        value: function removeEventListeners() {
+            window.removeEventListener('blur', this.onWindowBlurListener);
+            document.removeEventListener('focusin', this.onDocumentFocusInListener);
+            this.el.removeEventListener('focusin', this.onWidgetFocusInListener);
+        }
+    }]);
+
+    return FocusExitEmitter;
 }();
+
+function addFocusExit(el) {
+    var exitEmitter = null;
+
+    nextID(el);
+
+    if (!focusExitEmitters[el.id]) {
+        exitEmitter = new FocusExitEmitter(el);
+        focusExitEmitters[el.id] = exitEmitter;
+    }
+
+    return exitEmitter;
+}
+
+function removeFocusExit(el) {
+    var exitEmitter = focusExitEmitters[el.id];
+
+    if (exitEmitter) {
+        exitEmitter.removeEventListeners();
+        delete focusExitEmitters[el.id];
+    }
+}
+
+module.exports = {
+    addFocusExit: addFocusExit,
+    removeFocusExit: removeFocusExit
+};

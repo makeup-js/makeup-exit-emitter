@@ -32,7 +32,7 @@ yarn add makeup-exit-emitter
 
     const el = document.getElementById('#widget1');
 
-    const exitEmitter = new ExitEmitter(el);
+    ExitEmitter.addFocusExit(el);
 
     el.addEventListener('focusExit', function(e){
         console.log(this, e); // outputs (el1, 'focusExit')
@@ -41,7 +41,8 @@ yarn add makeup-exit-emitter
 
 ## Methods
 
-* None
+* addFocusExit(el)
+* removeFocusExit(el)
 
 ## Events
 
@@ -53,6 +54,7 @@ yarn add makeup-exit-emitter
 ## Dependencies
 
 * custom-event-polyfill
+* makeup-next-id
 
 ## Development
 

@@ -2894,6 +2894,10 @@ lru-cache@^4.0.1:
     pseudomap "^1.0.2"
     yallist "^2.1.2"
 
+makeup-next-id@~0.0:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/makeup-next-id/-/makeup-next-id-0.0.1.tgz#e4bf4821616c85c96d09631aa166732006468f06"
+
 map-obj@^1.0.0, map-obj@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-1.0.1.tgz#d933ceb9205d82bdcf4886f6742bdc2b4dea146d"

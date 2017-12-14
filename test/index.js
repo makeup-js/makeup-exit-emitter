@@ -20,7 +20,7 @@ describe("makeup-focus-exit-emitter", function() {
 
     describe('when emitter is added', function() {
         beforeAll(function() {
-            var exitEmitter = new ExitEmitter(testEl); // eslint-disable-line
+            ExitEmitter.addFocusExit(testEl);
         });
 
         it("should trigger focusexit when focus moves from element root to sibling", function(done) {

@@ -1,5 +1,8 @@
 'use strict';
 
+const nextID = require('makeup-next-id');
+const focusExitEmitters = {};
+
 // requires CustomEvent polyfill for IE9+
 // https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
 
@@ -19,6 +22,7 @@ function onDocumentFocusIn(e) {
         // set the target as the currently focussed element
         this.currentFocusElement = newFocusElement;
     } else { // else focus has not gone to a focusable descendant
+        window.removeEventListener('blur', this.onWindowBlurListener);
         document.removeEventListener('focusin', this.onDocumentFocusInListener);
         doFocusExit(this.el, this.currentFocusElement, newFocusElement);
         this.currentFocusElement = null;
@@ -37,7 +41,7 @@ function onWidgetFocusIn() {
     window.addEventListener('blur', this.onWindowBlurListener);
 }
 
-module.exports = class {
+class FocusExitEmitter {
     constructor(el) {
         this.el = el;
 
@@ -49,4 +53,37 @@ module.exports = class {
 
         this.el.addEventListener('focusin', this.onWidgetFocusInListener);
     }
+
+    removeEventListeners() {
+        window.removeEventListener('blur', this.onWindowBlurListener);
+        document.removeEventListener('focusin', this.onDocumentFocusInListener);
+        this.el.removeEventListener('focusin', this.onWidgetFocusInListener);
+    }
+}
+
+function addFocusExit(el) {
+    let exitEmitter = null;
+
+    nextID(el);
+
+    if (!focusExitEmitters[el.id]) {
+        exitEmitter = new FocusExitEmitter(el);
+        focusExitEmitters[el.id] = exitEmitter;
+    }
+
+    return exitEmitter;
+}
+
+function removeFocusExit(el) {
+    const exitEmitter = focusExitEmitters[el.id];
+
+    if (exitEmitter) {
+        exitEmitter.removeEventListeners();
+        delete focusExitEmitters[el.id];
+    }
+}
+
+module.exports = {
+    addFocusExit,
+    removeFocusExit
 };

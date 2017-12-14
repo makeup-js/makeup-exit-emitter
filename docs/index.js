@@ -1,14 +1,15 @@
 var ExitEmitter = require('../index.js');
 
 Array.prototype.slice.call(document.querySelectorAll('.widget')).forEach(function(el) {
-    var exitEmitter = new ExitEmitter(el); // eslint-disable-line
-
-    el.addEventListener('focusin', function() {
+    el.addEventListener('focusin', function(e) {
+        console.log(e);
+        ExitEmitter.addFocusExit(el);
         this.classList.add('focusin');
     });
 
     el.addEventListener('focusExit', function(e) {
         console.log(e);
+        ExitEmitter.removeFocusExit(el);
         this.classList.remove('focusin');
     });
 });
