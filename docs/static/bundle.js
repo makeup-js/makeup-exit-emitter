@@ -591,7 +591,7 @@ https://github.com/joyent/node/blob/master/lib/module.js
     }
 })();
 
-$_mod.installed("makeup-exit-emitter$0.0.2", "custom-event-polyfill", "0.3.0");
+$_mod.installed("makeup-exit-emitter$0.0.3", "custom-event-polyfill", "0.3.0");
 $_mod.main("/custom-event-polyfill$0.3.0", "custom-event-polyfill");
 $_mod.def("/custom-event-polyfill$0.3.0/custom-event-polyfill", function(require, exports, module, __filename, __dirname) { // Polyfill for creating CustomEvents on IE9/10/11
 
@@ -640,7 +640,7 @@ try {
 
 });
 $_mod.run("/custom-event-polyfill$0.3.0/custom-event-polyfill");
-$_mod.installed("makeup-exit-emitter$0.0.2", "makeup-next-id", "0.0.1");
+$_mod.installed("makeup-exit-emitter$0.0.3", "makeup-next-id", "0.0.1");
 $_mod.main("/makeup-next-id$0.0.1", "");
 $_mod.def("/makeup-next-id$0.0.1/index", function(require, exports, module, __filename, __dirname) { 'use strict';
 
@@ -662,7 +662,7 @@ module.exports = function (el) {
 };
 
 });
-$_mod.def("/makeup-exit-emitter$0.0.2/index", function(require, exports, module, __filename, __dirname) { 'use strict';
+$_mod.def("/makeup-exit-emitter$0.0.3/index", function(require, exports, module, __filename, __dirname) { 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -765,7 +765,7 @@ module.exports = {
 };
 
 });
-$_mod.def("/makeup-exit-emitter$0.0.2/docs/index", function(require, exports, module, __filename, __dirname) { var ExitEmitter = require('/makeup-exit-emitter$0.0.2/index'/*'../index.js'*/);
+$_mod.def("/makeup-exit-emitter$0.0.3/docs/index", function(require, exports, module, __filename, __dirname) { var ExitEmitter = require('/makeup-exit-emitter$0.0.3/index'/*'../index.js'*/);
 
 Array.prototype.slice.call(document.querySelectorAll('.widget')).forEach(function(el) {
     el.addEventListener('focusin', function(e) {
@@ -782,4 +782,4 @@ Array.prototype.slice.call(document.querySelectorAll('.widget')).forEach(functio
 });
 
 });
-$_mod.run("/makeup-exit-emitter$0.0.2/docs/index");
+$_mod.run("/makeup-exit-emitter$0.0.3/docs/index");
