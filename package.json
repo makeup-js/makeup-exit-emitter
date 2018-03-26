@@ -52,5 +52,11 @@
   "dependencies": {
     "custom-event-polyfill": "~0.3",
     "makeup-next-id": "~0.0"
-  }
+  },
+  "files": [
+    "browser.json",
+    "index.js",
+    "util.js",
+    "yarn.lock"
+  ]
 }
