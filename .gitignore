@@ -15,6 +15,7 @@ build
 test/static/bundle-test.js
 test/static/lasso-client.js
 test/static/custom-event-polyfill.js
+test/static/makeup-next-id.js
 
 # Unit Test & Code Coverage Reports
 reports
