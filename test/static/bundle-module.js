@@ -1,6 +1,6 @@
-$_mod.installed("makeup-exit-emitter$0.0.4", "custom-event-polyfill", "1.0.7");
-$_mod.installed("makeup-exit-emitter$0.0.4", "makeup-next-id", "0.0.2");
-$_mod.def("/makeup-exit-emitter$0.0.4/index", function(require, exports, module, __filename, __dirname) { 'use strict';
+$_mod.installed("makeup-exit-emitter$0.1.0", "custom-event-polyfill", "1.0.7");
+$_mod.installed("makeup-exit-emitter$0.1.0", "makeup-next-id", "0.0.2");
+$_mod.def("/makeup-exit-emitter$0.1.0/index", function(require, exports, module, __filename, __dirname) { 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
