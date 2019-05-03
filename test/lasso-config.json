@@ -9,6 +9,18 @@
       ]
     },
     {
+      "name": "custom-event-polyfill",
+      "dependencies": [
+        "require: custom-event-polyfill"
+      ]
+    },
+    {
+      "name": "makeup-next-id",
+      "dependencies": [
+        "require: makeup-next-id"
+      ]
+    },
+    {
       "name": "bundle-module",
       "dependencies": [
         "require: ../index.js"
