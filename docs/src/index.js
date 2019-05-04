@@ -1,6 +1,8 @@
-var ExitEmitter = require('../index.js');
+/* eslint-disable no-console */
 
-Array.prototype.slice.call(document.querySelectorAll('.widget')).forEach(function(el) {
+const ExitEmitter = require('../index.js');
+
+document.querySelectorAll('.widget').forEach(function(el) {
     el.addEventListener('focusin', function(e) {
         console.log(e);
         ExitEmitter.addFocusExit(el);

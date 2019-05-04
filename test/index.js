@@ -1,4 +1,4 @@
-describe("makeup-focus-exit-emitter", function() {
+describe('makeup-focus-exit-emitter', function() {
     var ExitEmitter = require('../index.js');
     var timeoutInterval = 250;
     var dom = '<div id="test-element" tabindex="0"><button></button><button></button></div>'
@@ -13,7 +13,7 @@ describe("makeup-focus-exit-emitter", function() {
     var testElSibling = document.querySelector('#test-element-sibling');
 
     describe('when emitter class is imported', function() {
-        it("FocusExitEmitter module should not be undefined", function() {
+        it('FocusExitEmitter module should not be undefined', function() {
             expect(ExitEmitter).not.toEqual(undefined);
         });
     });
@@ -23,7 +23,7 @@ describe("makeup-focus-exit-emitter", function() {
             ExitEmitter.addFocusExit(testEl);
         });
 
-        it("should trigger focusexit when focus moves from element root to sibling", function(done) {
+        it('should trigger focusexit when focus moves from element root to sibling', function(done) {
             // async assert
             testEl.addEventListener('focusExit', done);
 
@@ -32,7 +32,7 @@ describe("makeup-focus-exit-emitter", function() {
             testElSibling.focus();
         });
 
-        it("should trigger when focus moves from element descendant to element sibling", function(done) {
+        it('should trigger when focus moves from element descendant to element sibling', function(done) {
             // async assert
             testEl.addEventListener('focusExit', done);
 
@@ -41,7 +41,7 @@ describe("makeup-focus-exit-emitter", function() {
             testElSibling.querySelector('button').focus();
         });
 
-        it("should NOT trigger when focus moves from element root to element descendant", function(done) {
+        it('should NOT trigger when focus moves from element root to element descendant', function(done) {
             // spy
             spyOn(eventHandlers, 'onFocusExit');
 
@@ -57,7 +57,7 @@ describe("makeup-focus-exit-emitter", function() {
             }, timeoutInterval);
         });
 
-        it("should NOT trigger when focus moves from element descendant to element descendant", function(done) {
+        it('should NOT trigger when focus moves from element descendant to element descendant', function(done) {
             // spy
             spyOn(eventHandlers, 'onFocusExit');
 
@@ -72,7 +72,7 @@ describe("makeup-focus-exit-emitter", function() {
             }, timeoutInterval);
         });
 
-        it("should NOT trigger when focus moves from element descendant to element root", function(done) {
+        it('should NOT trigger when focus moves from element descendant to element root', function(done) {
             // spy
             spyOn(eventHandlers, 'onFocusExit');
 
