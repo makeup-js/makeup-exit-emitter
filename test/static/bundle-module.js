@@ -1,6 +1,6 @@
-$_mod.installed("makeup-exit-emitter$0.1.0", "custom-event-polyfill", "1.0.7");
-$_mod.installed("makeup-exit-emitter$0.1.0", "makeup-next-id", "0.0.3");
-$_mod.def("/makeup-exit-emitter$0.1.0/index", function(require, exports, module, __filename, __dirname) { 'use strict';
+$_mod.installed("makeup-exit-emitter$0.1.1", "custom-event-polyfill", "1.0.7");
+$_mod.installed("makeup-exit-emitter$0.1.1", "makeup-next-id", "0.0.3");
+$_mod.def("/makeup-exit-emitter$0.1.1/index", function(require, exports, module, __filename, __dirname) { 'use strict';
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
