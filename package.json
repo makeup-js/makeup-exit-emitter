@@ -55,7 +55,7 @@
   },
   "dependencies": {
     "custom-event-polyfill": "^1",
-    "makeup-next-id": "~0.0.2"
+    "makeup-next-id": "~0.0.3"
   },
   "files": [
     "browser.json",

@@ -1,5 +1,5 @@
 $_mod.installed("makeup-exit-emitter$0.1.0", "custom-event-polyfill", "1.0.7");
-$_mod.installed("makeup-exit-emitter$0.1.0", "makeup-next-id", "0.0.2");
+$_mod.installed("makeup-exit-emitter$0.1.0", "makeup-next-id", "0.0.3");
 $_mod.def("/makeup-exit-emitter$0.1.0/index", function(require, exports, module, __filename, __dirname) { 'use strict';
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -8,7 +8,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var nextID = require('/makeup-next-id$0.0.2/index'/*'makeup-next-id'*/);
+var nextID = require('/makeup-next-id$0.0.3/index'/*'makeup-next-id'*/);
 
 var focusExitEmitters = {}; // requires CustomEvent polyfill for IE9+
 // https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent

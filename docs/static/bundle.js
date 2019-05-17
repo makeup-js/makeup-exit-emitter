@@ -662,25 +662,25 @@ $_mod.def("/custom-event-polyfill$1.0.7/polyfill", function(require, exports, mo
 
 });
 $_mod.run("/custom-event-polyfill$1.0.7/polyfill");
-$_mod.installed("makeup-exit-emitter$0.1.0", "makeup-next-id", "0.0.2");
-$_mod.main("/makeup-next-id$0.0.2", "");
-$_mod.def("/makeup-next-id$0.0.2/index", function(require, exports, module, __filename, __dirname) { 'use strict';
+$_mod.installed("makeup-exit-emitter$0.1.0", "makeup-next-id", "0.0.3");
+$_mod.main("/makeup-next-id$0.0.3", "");
+$_mod.def("/makeup-next-id$0.0.3/index", function(require, exports, module, __filename, __dirname) { 'use strict';
 
 var sequenceMap = {};
 var defaultPrefix = 'nid';
 
 module.exports = function (el) {
-    var prefix = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : defaultPrefix;
+  var prefix = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : defaultPrefix;
 
-    // prevent empty string
-    var _prefix = prefix === '' ? defaultPrefix : prefix;
+  // prevent empty string
+  var _prefix = prefix === '' ? defaultPrefix : prefix; // initialise prefix in sequence map if necessary
 
-    // initialise prefix in sequence map if necessary
-    sequenceMap[_prefix] = sequenceMap[_prefix] || 0;
 
-    if (!el.id) {
-        el.setAttribute('id', _prefix + '-' + sequenceMap[_prefix]++);
-    }
+  sequenceMap[_prefix] = sequenceMap[_prefix] || 0;
+
+  if (!el.id) {
+    el.setAttribute('id', "".concat(_prefix, "-").concat(sequenceMap[_prefix]++));
+  }
 };
 
 });
@@ -692,7 +692,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var nextID = require('/makeup-next-id$0.0.2/index'/*'makeup-next-id'*/);
+var nextID = require('/makeup-next-id$0.0.3/index'/*'makeup-next-id'*/);
 
 var focusExitEmitters = {}; // requires CustomEvent polyfill for IE9+
 // https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
