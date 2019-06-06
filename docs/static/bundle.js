@@ -591,7 +591,7 @@ https://github.com/joyent/node/blob/master/lib/module.js
     }
 })();
 
-$_mod.installed("makeup-exit-emitter$0.1.1", "nodelist-foreach-polyfill", "1.2.0");
+$_mod.installed("makeup-exit-emitter$0.2.0", "nodelist-foreach-polyfill", "1.2.0");
 $_mod.main("/nodelist-foreach-polyfill$1.2.0", "");
 $_mod.def("/nodelist-foreach-polyfill$1.2.0/index", function(require, exports, module, __filename, __dirname) { if (window.NodeList && !NodeList.prototype.forEach) {
     NodeList.prototype.forEach = function (callback, thisArg) {
@@ -604,7 +604,7 @@ $_mod.def("/nodelist-foreach-polyfill$1.2.0/index", function(require, exports, m
 
 });
 $_mod.run("/nodelist-foreach-polyfill$1.2.0/index");
-$_mod.installed("makeup-exit-emitter$0.1.1", "custom-event-polyfill", "1.0.7");
+$_mod.installed("makeup-exit-emitter$0.2.0", "custom-event-polyfill", "1.0.7");
 $_mod.main("/custom-event-polyfill$1.0.7", "polyfill");
 $_mod.def("/custom-event-polyfill$1.0.7/polyfill", function(require, exports, module, __filename, __dirname) { // Polyfill for creating CustomEvents on IE9/10/11
 
@@ -662,7 +662,7 @@ $_mod.def("/custom-event-polyfill$1.0.7/polyfill", function(require, exports, mo
 
 });
 $_mod.run("/custom-event-polyfill$1.0.7/polyfill");
-$_mod.installed("makeup-exit-emitter$0.1.1", "makeup-next-id", "0.1.1");
+$_mod.installed("makeup-exit-emitter$0.2.0", "makeup-next-id", "0.1.1");
 $_mod.main("/makeup-next-id$0.1.1", "");
 $_mod.installed("makeup-next-id$0.1.1", "nanoid", "2.0.3");
 $_mod.main("/nanoid$2.0.3", "");
@@ -906,7 +906,7 @@ module.exports = function (el) {
 };
 
 });
-$_mod.def("/makeup-exit-emitter$0.1.1/index", function(require, exports, module, __filename, __dirname) { 'use strict';
+$_mod.def("/makeup-exit-emitter$0.2.0/index", function(require, exports, module, __filename, __dirname) { 'use strict';
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -1011,10 +1011,10 @@ module.exports = {
 };
 
 });
-$_mod.def("/makeup-exit-emitter$0.1.1/docs/index", function(require, exports, module, __filename, __dirname) { "use strict";
+$_mod.def("/makeup-exit-emitter$0.2.0/docs/index", function(require, exports, module, __filename, __dirname) { "use strict";
 
 /* eslint-disable no-console */
-var ExitEmitter = require('/makeup-exit-emitter$0.1.1/index'/*'../index.js'*/);
+var ExitEmitter = require('/makeup-exit-emitter$0.2.0/index'/*'../index.js'*/);
 
 document.querySelectorAll('.widget').forEach(function (el) {
   el.addEventListener('focusin', function (e) {
@@ -1030,4 +1030,4 @@ document.querySelectorAll('.widget').forEach(function (el) {
 });
 
 });
-$_mod.run("/makeup-exit-emitter$0.1.1/docs/index");
+$_mod.run("/makeup-exit-emitter$0.2.0/docs/index");
