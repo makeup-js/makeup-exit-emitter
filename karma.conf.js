@@ -15,6 +15,8 @@ module.exports = function (config) {
     files: [
       'test/static/lasso-client.js',
       'test/static/custom-event-polyfill.js',
+      'test/static/nanoid.js',
+      'test/static/process.js',
       'test/static/makeup-next-id.js',
       'test/static/bundle-module.js',
       'test/static/bundle-test.js',
