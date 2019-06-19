@@ -2,7 +2,7 @@
 
 const ExitEmitter = require('../index.js');
 
-document.querySelectorAll('.widget').forEach(function(el) {
+document.querySelectorAll('.widget').forEach((el) => {
     el.addEventListener('focusin', function(e) {
         console.log(e);
         ExitEmitter.addFocusExit(el);
