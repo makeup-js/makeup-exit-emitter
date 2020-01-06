@@ -1,5 +1,5 @@
-$_mod.installed("makeup-exit-emitter$0.2.0", "custom-event-polyfill", "1.0.7");
-$_mod.installed("makeup-exit-emitter$0.2.0", "makeup-next-id", "0.1.2");
+$_mod.installed("makeup-exit-emitter$0.2.1", "custom-event-polyfill", "1.0.7");
+$_mod.installed("makeup-exit-emitter$0.2.1", "makeup-next-id", "0.1.2");
 $_mod.main("/nanoid$2.1.8/non-secure", "");
 $_mod.def("/nanoid$2.1.8/non-secure/index", function(require, exports, module, __filename, __dirname) { var url = 'sOwnPropMN49CEiq-hXvHJdSymlFURTag61GQfuD8YIWz2Zk5xKB7LV30_Abject'
 
@@ -28,7 +28,7 @@ module.exports = function (size) {
 }
 
 });
-$_mod.def("/makeup-exit-emitter$0.2.0/index", function(require, exports, module, __filename, __dirname) { 'use strict';
+$_mod.def("/makeup-exit-emitter$0.2.1/index", function(require, exports, module, __filename, __dirname) { 'use strict';
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
