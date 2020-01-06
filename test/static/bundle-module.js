@@ -1,5 +1,33 @@
 $_mod.installed("makeup-exit-emitter$0.2.0", "custom-event-polyfill", "1.0.7");
-$_mod.installed("makeup-exit-emitter$0.2.0", "makeup-next-id", "0.1.1");
+$_mod.installed("makeup-exit-emitter$0.2.0", "makeup-next-id", "0.1.2");
+$_mod.main("/nanoid$2.1.8/non-secure", "");
+$_mod.def("/nanoid$2.1.8/non-secure/index", function(require, exports, module, __filename, __dirname) { var url = 'sOwnPropMN49CEiq-hXvHJdSymlFURTag61GQfuD8YIWz2Zk5xKB7LV30_Abject'
+
+/**
+ * Generate URL-friendly unique ID. This method use non-secure predictable
+ * random generator with bigger collision probability.
+ *
+ * @param {number} [size=21] The number of symbols in ID.
+ *
+ * @return {string} Random string.
+ *
+ * @example
+ * const nanoid = require('nanoid/non-secure')
+ * model.id = nanoid() //=> "Uakgb_J5m9g-0JDMbcJqL"
+ *
+ * @name nonSecure
+ * @function
+ */
+module.exports = function (size) {
+  size = size || 21
+  var id = ''
+  while (size--) {
+    id += url[Math.random() * 64 | 0]
+  }
+  return id
+}
+
+});
 $_mod.def("/makeup-exit-emitter$0.2.0/index", function(require, exports, module, __filename, __dirname) { 'use strict';
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -8,7 +36,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var nextID = require('/makeup-next-id$0.1.1/index'/*'makeup-next-id'*/);
+var nextID = require('/makeup-next-id$0.1.2/index'/*'makeup-next-id'*/);
 
 var focusExitEmitters = {}; // requires CustomEvent polyfill for IE9+
 // https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent

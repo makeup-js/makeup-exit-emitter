@@ -664,16 +664,13 @@ $_mod.def("/custom-event-polyfill$1.0.7/polyfill", function(require, exports, mo
 $_mod.run("/custom-event-polyfill$1.0.7/polyfill");
 $_mod.installed("makeup-exit-emitter$0.2.0", "makeup-next-id", "0.1.2");
 $_mod.main("/makeup-next-id$0.1.2", "");
-$_mod.installed("makeup-next-id$0.1.2", "nanoid", "2.1.1");
-$_mod.main("/nanoid$2.1.1/non-secure", "");
-$_mod.def("/nanoid$2.1.1/non-secure/index", function(require, exports, module, __filename, __dirname) { var url = 'bjectSymhasOwnProp-0123456789ABCDEFGHIJKLMNQRTUVWXYZ_dfgiklquvxz'
+$_mod.installed("makeup-next-id$0.1.2", "nanoid", "2.1.8");
+$_mod.main("/nanoid$2.1.8/non-secure", "");
+$_mod.def("/nanoid$2.1.8/non-secure/index", function(require, exports, module, __filename, __dirname) { var url = 'sOwnPropMN49CEiq-hXvHJdSymlFURTag61GQfuD8YIWz2Zk5xKB7LV30_Abject'
 
 /**
  * Generate URL-friendly unique ID. This method use non-secure predictable
- * random generator.
- *
- * By default, ID will have 21 symbols to have a collision probability similar
- * to UUID v4.
+ * random generator with bigger collision probability.
  *
  * @param {number} [size=21] The number of symbols in ID.
  *
@@ -689,7 +686,7 @@ $_mod.def("/nanoid$2.1.1/non-secure/index", function(require, exports, module, _
 module.exports = function (size) {
   size = size || 21
   var id = ''
-  while (0 < size--) {
+  while (size--) {
     id += url[Math.random() * 64 | 0]
   }
   return id
@@ -698,7 +695,7 @@ module.exports = function (size) {
 });
 $_mod.def("/makeup-next-id$0.1.2/index", function(require, exports, module, __filename, __dirname) { 'use strict';
 
-var nanoid = require('/nanoid$2.1.1/non-secure/index'/*'nanoid/non-secure'*/);
+var nanoid = require('/nanoid$2.1.8/non-secure/index'/*'nanoid/non-secure'*/);
 
 var sequenceMap = {};
 var defaultPrefix = 'nid';
