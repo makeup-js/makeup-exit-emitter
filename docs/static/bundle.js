@@ -828,14 +828,11 @@ $_mod.def("/makeup-exit-emitter$0.2.1/docs/index", function(require, exports, mo
 var ExitEmitter = require('/makeup-exit-emitter$0.2.1/index'/*'../index.js'*/);
 
 document.querySelectorAll('.widget').forEach(function (el) {
+  ExitEmitter.addFocusExit(el);
   el.addEventListener('focusin', function (e) {
-    console.log(e);
-    ExitEmitter.addFocusExit(el);
     this.classList.add('focusin');
   });
   el.addEventListener('focusExit', function (e) {
-    console.log(e);
-    ExitEmitter.removeFocusExit(el);
     this.classList.remove('focusin');
   });
 });
