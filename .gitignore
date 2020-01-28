@@ -12,15 +12,12 @@ lint.txt
 # Lasso docs temp files
 .cache
 build
-docs/index.js
+docs/transpiled
 
-# Lasso tests temp files
-test/static/bundle-test.js
-test/static/lasso-client.js
-test/static/custom-event-polyfill.js
-test/static/nanoid.js
-test/static/process.js
-test/static/makeup-next-id.js
+# Tests temp files
+test/transpiled
+test/bundled
 
 # Unit Test & Code Coverage Reports
+coverage
 reports

@@ -1,5 +1,6 @@
 describe('makeup-focus-exit-emitter', function() {
-    var ExitEmitter = require('../index.js');
+    var ExitEmitter = require('../src/index.js');
+
     var timeoutInterval = 250;
     var dom = '<div id="test-element" tabindex="0"><button></button><button></button></div>'
             + '<div id="test-element-sibling" tabindex="0"><button></button><button></button></div>';
@@ -21,6 +22,10 @@ describe('makeup-focus-exit-emitter', function() {
     describe('when emitter is added', function() {
         beforeAll(function() {
             ExitEmitter.addFocusExit(testEl);
+        });
+
+        afterAll(function() {
+            ExitEmitter.removeFocusExit(testEl);
         });
 
         it('should trigger focusexit when focus moves from element root to sibling', function(done) {
