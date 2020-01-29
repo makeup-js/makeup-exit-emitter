@@ -58,7 +58,7 @@
     "webpack-cli": "^3"
   },
   "dependencies": {
-    "custom-event-polyfill": "^1",
+    "custom-event": "^1",
     "makeup-next-id": "~0.1.2"
   },
   "files": [

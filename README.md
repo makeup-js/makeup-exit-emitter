@@ -54,11 +54,7 @@ yarn add makeup-exit-emitter
 ## Dependencies
 
 * [makeup-next-id](https://github.com/makeup-js/makeup-next-id)
-
-## Polyfills
-
-* [custom-event-polyfill](https://github.com/krambuhl/custom-event-polyfill) (for IE11)
-* [nodelist-foreach-polyfill](https://github.com/imagitama/nodelist-foreach-polyfill) (docs page only)
+* [custom-event](https://github.com/webmodules/custom-event) (for IE)
 
 ## CI Build
 
