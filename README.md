@@ -60,22 +60,6 @@ yarn add makeup-exit-emitter
 * [custom-event-polyfill](https://github.com/krambuhl/custom-event-polyfill) (for IE11)
 * [nodelist-foreach-polyfill](https://github.com/imagitama/nodelist-foreach-polyfill) (docs page only)
 
-## Development
-
-* `npm start`
-* `npm test`
-* `npm run lint`
-* `npm run fix`
-* `npm run build`
-* `npm run clean`
-
-## Test Reports
-
-Each test run will generate the following reports:
-
-* `/reports/coverage` contains Istanbul code coverage report
-* `/reports/html` contains HTML test report
-
 ## CI Build
 
 https://travis-ci.org/makeup-js/makeup-exit-emitter
