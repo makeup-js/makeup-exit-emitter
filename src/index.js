@@ -7,9 +7,6 @@ const CustomEvent = require('custom-event');
 const nextID = require('makeup-next-id');
 const focusExitEmitters = {};
 
-// requires CustomEvent polyfill for IE9+
-// https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
-
 function doFocusExit(el, fromElement, toElement) {
     el.dispatchEvent(new CustomEvent('focusExit', {
         detail: { fromElement, toElement },

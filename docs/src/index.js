@@ -1,4 +1,6 @@
-const ExitEmitter = require('../../src/index.js');
+require('nodelist-foreach-polyfill');
+
+const ExitEmitter = require('../../index.js');
 
 document.querySelectorAll('.widget').forEach((el) => {
     ExitEmitter.addFocusExit(el);

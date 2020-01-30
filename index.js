@@ -1,4 +1,5 @@
-'use strict';
+'use strict'; // requires CustomEvent polyfill for IE
+// https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -6,10 +7,11 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+var CustomEvent = require('custom-event');
+
 var nextID = require('makeup-next-id');
 
-var focusExitEmitters = {}; // requires CustomEvent polyfill for IE9+
-// https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
+var focusExitEmitters = {};
 
 function doFocusExit(el, fromElement, toElement) {
   el.dispatchEvent(new CustomEvent('focusExit', {
